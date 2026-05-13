@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Prem Nandha is an aspiring Full Stack Developer and AI enthusiast from Ahmedabad, Gujarat, focused on React, Node.js, databases, AI applications, and intelligent software systems." />
+  <meta name="keywords"
+    content="Prem Nandha, Full Stack Developer, AI Enthusiast, React Developer, Node.js, Ahmedabad, Indus University, Computer Engineering Portfolio" />
+  <meta name="author" content="Prem Nandha" />
+  <meta property="og:title" content="Prem Nandha | Full Stack Developer Portfolio" />
+  <meta property="og:description"
+    content="Modern portfolio for an aspiring Full Stack Developer and AI enthusiast from Ahmedabad, Gujarat." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#10141f" />
+  <title>Prem Nandha | Full Stack Developer Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    window.tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui"],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a0d12;
+      --bg-alt: #10151d;
+      --surface: rgba(19, 25, 35, 0.72);
+      --surface-strong: rgba(23, 31, 43, 0.92);
+      --text: #f8fafc;
+      --muted: #a7b2c3;
+      --soft: rgba(248, 250, 252, 0.08);
+      --line: rgba(248, 250, 252, 0.14);
+      --accent: #2dd4bf;
+      --accent-2: #38bdf8;
+      --accent-3: #f59e0b;
+      --accent-4: #fb7185;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      --grid: rgba(45, 212, 191, 0.08);
+      --particle: rgba(56, 189, 248, 0.56);
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f7fafc;
+      --bg-alt: #eef4f8;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-strong: rgba(255, 255, 255, 0.94);
+      --text: #101622;
+      --muted: #526174;
+      --soft: rgba(16, 22, 34, 0.08);
+      --line: rgba(16, 22, 34, 0.13);
+      --accent: #0d9488;
+      --accent-2: #0284c7;
+      --accent-3: #d97706;
+      --accent-4: #e11d48;
+      --shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+      --grid: rgba(13, 148, 136, 0.11);
+      --particle: rgba(2, 132, 199, 0.42);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+        linear-gradient(180deg, var(--grid) 1px, transparent 1px),
+        radial-gradient(circle at 45% 0%, rgba(45, 212, 191, 0.16), transparent 28rem),
+        linear-gradient(135deg, var(--bg), var(--bg-alt));
+      background-size: 44px 44px, 44px 44px, auto, auto;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .glass {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .glass-strong {
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .accent-line {
+      width: 72px;
+      height: 3px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+    }
+
+    .nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 220ms ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 220ms ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+      width: 100%;
+    }
+
+    .icon-button,
+    .mobile-button {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--text);
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .icon-button:hover,
+    .mobile-button:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 72%, var(--line));
+      background: color-mix(in srgb, var(--accent) 12%, var(--soft));
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92svh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      padding: 8rem 0 5rem;
+    }
+
+    .hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 36%;
+      z-index: -1;
+      background: linear-gradient(180deg, transparent, var(--bg));
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface) 82%, transparent);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      max-width: 950px;
+      font-size: clamp(3rem, 8vw, 7.25rem);
+      line-height: 0.96;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .typing-pill {
+      min-height: 2.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--surface) 86%, transparent);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .typing-caret {
+      width: 2px;
+      height: 1.25rem;
+      background: var(--accent);
+      animation: blink 0.95s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      line-height: 1.75;
+    }
+
+    .primary-button,
+    .secondary-button,
+    .ghost-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 48px;
+      padding: 0.85rem 1.05rem;
+      border-radius: 8px;
+      font-weight: 800;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+      white-space: nowrap;
+    }
+
+    .primary-button {
+      color: #061016;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 16px 44px color-mix(in srgb, var(--accent-2) 28%, transparent);
+    }
+
+    .secondary-button {
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .ghost-button {
+      color: var(--text);
+      border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--line));
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+
+    .primary-button:hover,
+    .secondary-button:hover,
+    .ghost-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .primary-button:disabled,
+    .secondary-button:disabled,
+    .ghost-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.72;
+      transform: none;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      max-width: 820px;
+    }
+
+    .metric {
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(1.3rem, 2.6vw, 2rem);
+      color: var(--text);
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .ambient-console {
+      position: absolute;
+      right: max(1.25rem, calc((100vw - 1180px) / 2));
+      bottom: 8%;
+      width: min(420px, 34vw);
+      border-radius: 8px;
+      padding: 1rem;
+      transform: rotate(-1.5deg);
+    }
+
+    .console-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--muted);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    .console-dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin-top: 0.7rem;
+      font-size: clamp(2rem, 4.8vw, 3.8rem);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .card {
+      border-radius: 8px;
+      padding: 1.35rem;
+      transition: transform 260ms ease, border-color 260ms ease, background 260ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: color-mix(in srgb, var(--accent) 46%, var(--line));
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.48rem 0.68rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .skill-card {
+      position: relative;
+      min-height: 126px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: "";
+      position: absolute;
+      inset: -45% -30% auto auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background: radial-gradient(circle, color-mix(in srgb, var(--skill-accent, var(--accent)) 34%, transparent), transparent 68%);
+      opacity: 0;
+      transform: scale(0.75);
+      transition: opacity 260ms ease, transform 260ms ease;
+    }
+
+    .skill-card:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .reveal.in-view .skill-card {
+      animation: skill-card-rise 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      animation-delay: var(--delay, 0ms);
+    }
+
+    .skill-icon-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--skill-accent, var(--accent)) 38%, var(--line));
+      background: linear-gradient(135deg,
+          color-mix(in srgb, var(--skill-accent, var(--accent)) 22%, transparent),
+          color-mix(in srgb, var(--accent-2) 14%, transparent));
+      color: var(--skill-accent, var(--accent));
+      transition: transform 260ms ease, color 260ms ease;
+    }
+
+    .skill-card:hover .skill-icon-wrap {
+      transform: translateY(-3px) rotate(4deg);
+      color: var(--skill-accent, var(--accent-2));
+    }
+
+    .skill-symbol {
+      position: absolute;
+      right: -0.45rem;
+      bottom: -0.45rem;
+      display: grid;
+      place-items: center;
+      min-width: 30px;
+      height: 26px;
+      padding: 0 0.35rem;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--skill-accent, var(--accent)) 44%, var(--line));
+      background: var(--surface-strong);
+      color: var(--text);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .skill-kicker {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .skill-name {
+      position: relative;
+      z-index: 1;
+      font-size: 1.06rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    @keyframes skill-card-rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .project-card {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-icon,
+    .interest-icon,
+    .timeline-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent-2) 18%, transparent));
+      border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+      color: var(--accent);
+    }
+
+    .timeline {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(var(--accent), var(--accent-2), var(--accent-3));
+      z-index: 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.2rem;
+      align-items: start;
+      z-index: 1;
+    }
+
+    .timeline-item+.timeline-item {
+      margin-top: 1.35rem;
+    }
+
+    .timeline-icon {
+      position: relative;
+      z-index: 2;
+      background:
+        linear-gradient(135deg,
+          color-mix(in srgb, var(--accent) 22%, transparent),
+          color-mix(in srgb, var(--accent-2) 14%, transparent)),
+        var(--surface-strong);
+      box-shadow: 0 0 0 10px var(--bg-alt);
+    }
+
+    .contact-input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+      color: var(--text);
+      padding: 0.9rem 1rem;
+      outline: none;
+      transition: border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+    }
+
+    .contact-input::placeholder {
+      color: color-mix(in srgb, var(--muted) 72%, transparent);
+    }
+
+    .contact-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+      background: color-mix(in srgb, var(--surface) 78%, transparent);
+    }
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      transition: opacity 350ms ease, visibility 350ms ease;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-mark {
+      width: 74px;
+      height: 74px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      position: relative;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .loader-mark::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      border: 2px solid transparent;
+      border-top-color: var(--accent);
+      border-right-color: var(--accent-2);
+      animation: spin 900ms linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .scroll-top {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 70px 1rem auto;
+      z-index: 45;
+      border-radius: 8px;
+      padding: 1rem;
+      transform-origin: top;
+      transform: scaleY(0.96);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .mobile-menu.open {
+      transform: scaleY(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 44px;
+      padding: 0.7rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--text);
+      font-weight: 700;
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+      background: color-mix(in srgb, var(--accent) 12%, var(--soft));
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        min-height: 90svh;
+        padding-top: 7.5rem;
+      }
+
+      .ambient-console {
+        display: none;
+      }
+
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 4.5rem 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 88svh;
+        padding: 6.5rem 0 3.5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 17vw, 4.45rem);
+      }
+
+      .primary-button,
+      .secondary-button,
+      .ghost-button {
+        width: 100%;
+      }
+
+      .typing-pill {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.94rem;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 40px 1fr;
+        gap: 0.9rem;
+      }
+
+      .timeline-icon {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Prem Nandha",
+        "jobTitle": "Aspiring Full Stack Developer",
+        "email": "mailto:pmnandha87@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ahmedabad",
+          "addressRegion": "Gujarat",
+          "addressCountry": "India"
+        },
+        "knowsAbout": [
+          "Full Stack Development",
+          "Artificial Intelligence",
+          "React",
+          "Node.js",
+          "Database Management",
+          ".NET",
+          "Azure"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Indus University"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Government Polytechnic, Porbandar"
+          }
+        ]
+      }
+    </script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useEffect, useMemo, useRef, useState } = React;
+
+    const navLinks = [
+      { label: "About", href: "#about" },
+      { label: "Skills", href: "#skills" },
+      { label: "Projects", href: "#projects" },
+      { label: "Education", href: "#education" },
+      { label: "Contact", href: "#contact" },
+    ];
+
+    const contactFormConfig = {
+      endpoint: "https://api.web3forms.com/submit",
+      accessKey: "42b13ef4-6d2a-4c58-9040-c6240b850558",
+      fromName: "Prem Nandha Portfolio",
+      subject: "New portfolio contact submission",
+    };
+
+    const technicalSkills = [
+      { name: "HTML", icon: "code-2", symbol: "HTML", label: "Markup", color: "#e44d26" },
+      { name: "CSS", icon: "palette", symbol: "CSS", label: "Styling", color: "#1572b6" },
+      { name: "JavaScript", icon: "braces", symbol: "JS", label: "Logic", color: "#f59e0b" },
+      { name: "React", icon: "atom", symbol: "React", label: "UI", color: "#38bdf8" },
+      { name: "Node.js", icon: "server", symbol: "Node", label: "Backend", color: "#22c55e" },
+      { name: "PHP", icon: "square-terminal", symbol: "PHP", label: "Server", color: "#777bb4" },
+      { name: "Python", icon: "bot", symbol: "Py", label: "Automation", color: "#3776ab" },
+      { name: "Angular", icon: "layout-template", symbol: "NG", label: "Framework", color: "#dd0031" },
+      { name: ".NET", icon: "boxes", symbol: ".NET", label: "Microsoft", color: "#512bd4" },
+      { name: "Database Management", icon: "database", symbol: "DB", label: "Systems", color: "#14b8a6" },
+      { name: "MongoDB", icon: "leaf", symbol: "MDB", label: "NoSQL", color: "#47a248" },
+      { name: "SQL", icon: "table", symbol: "SQL", label: "Queries", color: "#2563eb" },
+    ];
+
+    const learningSkills = [
+      { name: "Data Science", icon: "binary", symbol: "DS", label: "Learning now", color: "#f59e0b" },
+      { name: "Machine Learning", icon: "brain", symbol: "ML", label: "Learning now", color: "#ec4899" },
+      { name: "Advanced Python", icon: "cpu", symbol: "Py+", label: "Deepening", color: "#0ea5e9" },
+    ];
+
+    const softSkills = [
+      { name: "Problem Solving", icon: "puzzle", symbol: "PS", label: "Thinking", color: "#14b8a6" },
+      { name: "Communication", icon: "message-square", symbol: "COM", label: "Clarity", color: "#0ea5e9" },
+      { name: "Teamwork", icon: "users", symbol: "TEAM", label: "Collaboration", color: "#f97316" },
+    ];
+
+    const projects = [
+      {
+        title: "Quiz Management System",
+        icon: "clipboard-check",
+        description:
+          "A web-based quiz management system developed for faculty, students, and admin management.",
+        tech: ["HTML", "CSS", "PHP", "SQL Database"],
+      },
+      {
+        title: "Smart Campus Assistance System",
+        icon: "bot",
+        description:
+          "An AI-powered smart campus assistance platform with role-based access for faculty, students, ERP coordinators, and admin.",
+        tech: ["React", "Node.js", "Express.js", "MongoDB", "AI Assistance"],
+      },
+    ];
+
+    const interests = [
+      { title: "Artificial Intelligence", icon: "brain" },
+      { title: "Full Stack Development", icon: "layers" },
+      { title: "Database Management", icon: "database" },
+      { title: "AI Applications", icon: "sparkles" },
+      { title: "Web Technologies", icon: "monitor" },
+    ];
+
+    const education = [
+      {
+        title: "B.Tech Computer Engineering",
+        place: "Indus University, Ahmedabad",
+        meta: "Pursuing, 2026",
+      },
+      {
+        title: "Diploma Computer Engineering",
+        place: "Government Polytechnic, Porbandar",
+        meta: "2023",
+      },
+      {
+        title: "10th Standard",
+        place: "SMT. JVGEM English Medium School, Porbandar",
+        meta: "Foundational education",
+      },
+    ];
+
+    function Icon({ name, className = "icon" }) {
+      return <i data-lucide={name} className={className} aria-hidden="true"></i>;
+    }
+
+    function useIcons(dependencies = []) {
+      useEffect(() => {
+        const id = window.setTimeout(() => {
+          if (window.lucide) {
+            window.lucide.createIcons();
+          }
+        }, 0);
+        return () => window.clearTimeout(id);
+      }, dependencies);
+    }
+
+    function HeroCanvas({ theme }) {
+      const canvasRef = useRef(null);
+
+      useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext("2d");
+        let width = 0;
+        let height = 0;
+        let frame = 0;
+        let animationId = 0;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const snippets = ["const future = build();", "AI.assist(campus)", "React + Node.js", "SQL | MongoDB", ".NET | Azure", "learn.iterate()"];
+        const particles = Array.from({ length: 64 }, (_, index) => ({
+          x: Math.random(),
+          y: Math.random(),
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: (Math.random() - 0.5) * 0.22,
+          r: 1 + Math.random() * 1.8,
+          label: snippets[index % snippets.length],
+        }));
+
+        const resolveColor = (name) =>
+          getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+        const resize = () => {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          width = canvas.offsetWidth;
+          height = canvas.offsetHeight;
+          canvas.width = width * dpr;
+          canvas.height = height * dpr;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        };
+
+        const draw = () => {
+          const accent = resolveColor("--accent");
+          const accent2 = resolveColor("--accent-2");
+          const particleColor = resolveColor("--particle");
+          ctx.clearRect(0, 0, width, height);
+
+          ctx.globalAlpha = theme === "light" ? 0.12 : 0.18;
+          ctx.strokeStyle = accent;
+          ctx.lineWidth = 1;
+          for (let x = 0; x < width; x += 88) {
+            ctx.beginPath();
+            ctx.moveTo(x + ((frame * 0.12) % 88), 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
+          }
+
+          particles.forEach((particle, index) => {
+            if (!prefersReducedMotion) {
+              particle.x += particle.vx / Math.max(width, 1);
+              particle.y += particle.vy / Math.max(height, 1);
+              if (particle.x < 0 || particle.x > 1) particle.vx *= -1;
+              if (particle.y < 0 || particle.y > 1) particle.vy *= -1;
+            }
+
+            const px = particle.x * width;
+            const py = particle.y * height;
+            ctx.globalAlpha = 0.86;
+            ctx.fillStyle = particleColor;
+            ctx.beginPath();
+            ctx.arc(px, py, particle.r, 0, Math.PI * 2);
+            ctx.fill();
+
+            if (index % 9 === 0) {
+              ctx.globalAlpha = theme === "light" ? 0.2 : 0.28;
+              ctx.font = "600 12px Consolas, monospace";
+              ctx.fillStyle = index % 2 ? accent : accent2;
+              ctx.fillText(particle.label, px + 12, py - 10);
+            }
+
+            for (let j = index + 1; j < particles.length; j += 8) {
+              const other = particles[j];
+              const ox = other.x * width;
+              const oy = other.y * height;
+              const distance = Math.hypot(px - ox, py - oy);
+              if (distance < 150) {
+                ctx.globalAlpha = (1 - distance / 150) * 0.18;
+                ctx.strokeStyle = particleColor;
+                ctx.beginPath();
+                ctx.moveTo(px, py);
+                ctx.lineTo(ox, oy);
+                ctx.stroke();
+              }
+            }
+          });
+
+          frame += 1;
+          animationId = window.requestAnimationFrame(draw);
+        };
+
+        resize();
+        draw();
+        window.addEventListener("resize", resize);
+        return () => {
+          window.removeEventListener("resize", resize);
+          window.cancelAnimationFrame(animationId);
+        };
+      }, [theme]);
+
+      return <canvas ref={canvasRef} className="hero-canvas" aria-hidden="true"></canvas>;
+    }
+
+    function TypingText() {
+      const phrases = useMemo(
+        () => ["Full Stack Development", "AI-powered apps", "Database systems", "Scalable web platforms"],
+        []
+      );
+      const [phraseIndex, setPhraseIndex] = useState(0);
+      const [length, setLength] = useState(0);
+      const [deleting, setDeleting] = useState(false);
+
+      useEffect(() => {
+        const current = phrases[phraseIndex];
+        const delay = deleting ? 42 : 78;
+        const timeout = window.setTimeout(() => {
+          if (!deleting && length < current.length) {
+            setLength(length + 1);
+          } else if (!deleting && length === current.length) {
+            window.setTimeout(() => setDeleting(true), 850);
+          } else if (deleting && length > 0) {
+            setLength(length - 1);
+          } else {
+            setDeleting(false);
+            setPhraseIndex((phraseIndex + 1) % phrases.length);
+          }
+        }, delay);
+        return () => window.clearTimeout(timeout);
+      }, [deleting, length, phraseIndex, phrases]);
+
+      return (
+        <span className="typing-pill">
+          <Icon name="square-terminal" />
+          <span>{phrases[phraseIndex].slice(0, length) || "\u00a0"}</span>
+          <span className="typing-caret"></span>
+        </span>
+      );
+    }
+
+    function Navbar({ theme, toggleTheme, menuOpen, setMenuOpen }) {
+      useEffect(() => {
+        document.body.classList.toggle("menu-open", menuOpen);
+        return () => document.body.classList.remove("menu-open");
+      }, [menuOpen]);
+
+      const closeMenu = () => setMenuOpen(false);
+
+      return (
+        <header className="nav-shell">
+          <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Primary navigation">
+            <a href="#home" className="flex items-center gap-3 font-extrabold" onClick={closeMenu}>
+              <span className="grid h-11 w-11 place-items-center rounded-lg border border-[var(--line)] bg-[var(--soft)] text-[var(--accent)]">PN</span>
+              <span className="hidden sm:block">Prem Nandha</span>
+            </a>
+
+            <div className="hidden items-center gap-7 lg:flex">
+              {navLinks.map((link) => (
+                <a key={link.href} className="nav-link" href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button className="icon-button" type="button" aria-label="Toggle color theme" onClick={toggleTheme}>
+                <Icon name={theme === "dark" ? "sun" : "moon"} />
+              </button>
+              <a className="hidden sm:inline-flex secondary-button min-h-[42px] px-4" href="#contact">
+                <Icon name="send" />
+                Contact
+              </a>
+              <button className="mobile-button lg:hidden" type="button" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>
+                <Icon name={menuOpen ? "x" : "menu"} />
+              </button>
+            </div>
+          </nav>
+
+          <div className={`mobile-menu glass-strong lg:hidden ${menuOpen ? "open" : ""}`}>
+            <div className="grid gap-2">
+              {navLinks.map((link) => (
+                <a key={link.href} className="rounded-lg px-4 py-3 font-bold text-[var(--text)] hover:bg-[var(--soft)]" href={link.href} onClick={closeMenu}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </header>
+      );
+    }
+
+    function SectionHeading({ label, title, children }) {
+      return (
+        <div className="section-heading">
+          <span className="section-label">{label}</span>
+          <h2 className="section-title">{title}</h2>
+          {children && <p className="section-copy">{children}</p>}
+        </div>
+      );
+    }
+
+    function SkillCard({ skill, index = 0 }) {
+      return (
+        <article
+          className="card glass skill-card"
+          style={{ "--delay": `${index * 65}ms`, "--skill-accent": skill.color }}
+        >
+          <span className="skill-icon-wrap" aria-hidden="true">
+            <Icon name={skill.icon} />
+            <span className="skill-symbol">{skill.symbol}</span>
+          </span>
+          <div className="min-w-0">
+            <span className="skill-kicker">{skill.label}</span>
+            <h3 className="skill-name mt-2">{skill.name}</h3>
+          </div>
+        </article>
+      );
+    }
+
+    function ProjectCard({ project }) {
+      return (
+        <article className="card glass project-card">
+          <div className="mb-6 flex items-center justify-between gap-4">
+            <span className="project-icon">
+              <Icon name={project.icon} />
+            </span>
+            <span className="badge">Featured</span>
+          </div>
+          <h3 className="text-2xl font-extrabold">{project.title}</h3>
+          <p className="mt-4 flex-1 text-[var(--muted)] leading-7">{project.description}</p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.tech.map((tech) => (
+              <span className="badge" key={tech}>
+                {tech}
+              </span>
+            ))}
+          </div>
+        </article>
+      );
+    }
+
+    function ContactForm() {
+      const formRef = useRef(null);
+      const [status, setStatus] = useState("");
+      const [statusTone, setStatusTone] = useState("info");
+      const [submitting, setSubmitting] = useState(false);
+
+      const getDraftData = () => {
+        const data = new FormData(formRef.current);
+        const name = data.get("name") || "Portfolio visitor";
+        const email = data.get("email") || "";
+        const message = data.get("message") || "";
+        const subject = `Portfolio inquiry from ${name}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        return {
+          subject,
+          body,
+          gmailUrl: `https://mail.google.com/mail/?view=cm&fs=1&to=pmnandha87@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+          mailtoUrl: `mailto:pmnandha87@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+        };
+      };
+
+      const openGmailDraft = () => {
+        const draft = getDraftData();
+        window.open(draft.gmailUrl, "_blank", "noopener,noreferrer");
+        setStatusTone("info");
+        setStatus("Opened a Gmail draft with your message. If no tab opened, use the email app button below.");
+      };
+
+      const openMailApp = () => {
+        const draft = getDraftData();
+        window.location.href = draft.mailtoUrl;
+        setStatusTone("info");
+        setStatus("Tried opening your default email app. If it does not open, use Gmail draft instead.");
+      };
+
+      const copyMessage = async () => {
+        const draft = getDraftData();
+        const text = `To: pmnandha87@gmail.com\nSubject: ${draft.subject}\n\n${draft.body}`;
+        try {
+          await navigator.clipboard.writeText(text);
+          setStatusTone("success");
+          setStatus("Copied the message details. You can paste them into any email app.");
+        } catch (error) {
+          setStatusTone("error");
+          setStatus("Copy did not work here. Please use the Gmail draft or email app button.");
+        }
+      };
+
+      const submit = async (event) => {
+        event.preventDefault();
+
+        if (submitting) return;
+
+        if (!contactFormConfig.accessKey || contactFormConfig.accessKey === "YOUR_WEB3FORMS_ACCESS_KEY") {
+          setStatusTone("error");
+          setStatus("Automatic sending is ready, but it still needs a Web3Forms access key in contactFormConfig.accessKey.");
+          return;
+        }
+
+        const data = new FormData(formRef.current);
+        const payload = {
+          access_key: contactFormConfig.accessKey,
+          subject: contactFormConfig.subject,
+          from_name: contactFormConfig.fromName,
+          replyto: data.get("email") || "",
+          name: data.get("name") || "",
+          email: data.get("email") || "",
+          message: data.get("message") || "",
+          botcheck: "",
+        };
+
+        setSubmitting(true);
+        setStatusTone("info");
+        setStatus("");
+
+        try {
+          const response = await fetch(contactFormConfig.endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          const result = await response.json().catch(() => ({}));
+
+          if (!response.ok || result.success === false) {
+            throw new Error(result.message || result.body?.message || "Message could not be sent right now.");
+          }
+
+          formRef.current.reset();
+          setStatusTone("success");
+          setStatus(result.message || result.body?.message || "Message sent successfully.");
+        } catch (error) {
+          setStatusTone("error");
+          setStatus(error.message || "Message could not be sent right now.");
+        } finally {
+          setSubmitting(false);
+        }
+      };
+
+      return (
+        <form ref={formRef} className="card glass grid gap-4" onSubmit={submit}>
+          <div className={`loader ${submitting ? "" : "hidden"}`} aria-hidden={!submitting}>
+            <div className="loader-mark">
+              <Icon name="send" className="h-8 w-8" />
+            </div>
+          </div>
+          <div>
+            <label className="mb-2 block text-sm font-bold text-[var(--muted)]" htmlFor="name">
+              Name
+            </label>
+            <input className="contact-input" id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div>
+            <label className="mb-2 block text-sm font-bold text-[var(--muted)]" htmlFor="email">
+              Email
+            </label>
+            <input className="contact-input" id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div>
+            <label className="mb-2 block text-sm font-bold text-[var(--muted)]" htmlFor="message">
+              Message
+            </label>
+            <textarea className="contact-input min-h-36 resize-y" id="message" name="message" placeholder="Tell me about the opportunity or project." required></textarea>
+          </div>
+          <button className="primary-button" type="submit" disabled={submitting}>
+            <Icon name="send" />
+            {submitting ? "Sending..." : "Send Message"}
+          </button>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <button className="secondary-button" type="button" onClick={openMailApp} disabled={submitting}>
+              <Icon name="mail" />
+              Use Email App
+            </button>
+            <button className="secondary-button" type="button" onClick={copyMessage} disabled={submitting}>
+              <Icon name="copy" />
+              Copy Message
+            </button>
+          </div>
+          {status && (
+            <p className={`text-sm font-semibold ${statusTone === "error" ? "text-rose-500" : statusTone === "success" ? "text-emerald-500" : "text-[var(--accent)]"}`}>
+              {status}
+            </p>
+          )}
+        </form>
+      );
+    }
+
+    function Portfolio() {
+      const [loading, setLoading] = useState(true);
+      const [theme, setTheme] = useState(() => {
+        const saved = window.localStorage.getItem("prem-portfolio-theme");
+        if (saved) return saved;
+        return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      });
+      const [menuOpen, setMenuOpen] = useState(false);
+      const [showTop, setShowTop] = useState(false);
+
+      useIcons([theme, loading, menuOpen]);
+
+      useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        window.localStorage.setItem("prem-portfolio-theme", theme);
+      }, [theme]);
+
+      useEffect(() => {
+        const timer = window.setTimeout(() => setLoading(false), 850);
+        return () => window.clearTimeout(timer);
+      }, []);
+
+      useEffect(() => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+              }
+            });
+          },
+          { threshold: 0.16 }
+        );
+        document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+        return () => observer.disconnect();
+      }, [loading]);
+
+      useEffect(() => {
+        const onScroll = () => setShowTop(window.scrollY > 680);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+      }, []);
+
+      const toggleTheme = () => setTheme((current) => (current === "dark" ? "light" : "dark"));
+
+      return (
+        <div className="site-shell">
+          <div className={`loader ${loading ? "" : "hidden"}`} aria-hidden={!loading}>
+            <div className="loader-mark">
+              <Icon name="code-2" className="h-8 w-8" />
+            </div>
+          </div>
+
+          <Navbar theme={theme} toggleTheme={toggleTheme} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+
+          <main id="home">
+            <section className="hero">
+              <HeroCanvas theme={theme} />
+              <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="max-w-5xl reveal in-view">
+                  <div className="hero-kicker">
+                    <Icon name="map-pin" />
+                    Ahmedabad, Gujarat, India
+                  </div>
+                  <h1 className="hero-title mt-7">
+                    Prem <span className="gradient-text">Nandha</span>
+                  </h1>
+                  <p className="mt-5 text-xl font-extrabold text-[var(--text)] sm:text-2xl">
+                    Aspiring Full Stack Developer | AI Enthusiast
+                  </p>
+                  <div className="mt-6">
+                    <TypingText />
+                  </div>
+                  <p className="hero-copy mt-6">
+                    Passionate Computer Engineering student focused on Full Stack Development, AI, and building intelligent user-centric applications.
+                  </p>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a className="primary-button" href="resume.html" download="Prem-Nandha-Resume.html">
+                      <Icon name="download" />
+                      Download Resume
+                    </a>
+                    <a className="secondary-button" href="#contact">
+                      <Icon name="send" />
+                      Contact Me
+                    </a>
+                    <a className="ghost-button" href="#projects">
+                      <Icon name="folder" />
+                      View Projects
+                    </a>
+                  </div>
+                  <div className="hero-metrics mt-10">
+                    <div className="metric glass">
+                      <strong>2026</strong>
+                      <span>B.Tech Computer Engineering candidate</span>
+                    </div>
+                    <div className="metric glass">
+                      <strong>2+</strong>
+                      <span>Major academic software projects</span>
+                    </div>
+                    <div className="metric glass">
+                      <strong>AI</strong>
+                      <span>Focused on intelligent user-centric systems</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ambient-console glass floating" aria-hidden="true">
+                <div className="mb-3 flex gap-2">
+                  <span className="h-3 w-3 rounded-full bg-[var(--accent-4)]"></span>
+                  <span className="h-3 w-3 rounded-full bg-[var(--accent-3)]"></span>
+                  <span className="h-3 w-3 rounded-full bg-[var(--accent)]"></span>
+                </div>
+                <div className="console-row"><span className="console-dot"></span><span>portfolio.init("Prem Nandha")</span></div>
+                <div className="console-row"><span className="console-dot"></span><span>stack.connect(React, Node, MongoDB)</span></div>
+                <div className="console-row"><span className="console-dot"></span><span>ai.assist("Smart Campus")</span></div>
+                <div className="console-row"><span className="console-dot"></span><span>career.goal = "build scalable systems"</span></div>
+              </div>
+            </section>
+
+            <section id="about" className="section">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="reveal">
+                  <SectionHeading label="About Me" title="A fresher developer building strong fundamentals and practical software thinking.">
+                    I am a Computer Engineering student who enjoys turning ideas into useful web applications, learning modern tools, and exploring how AI can make software more helpful.
+                  </SectionHeading>
+                </div>
+
+                <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+                  <article className="card glass reveal">
+                    <div className="accent-line"></div>
+                    <p className="mt-6 text-lg leading-8 text-[var(--muted)]">
+                      I am pursuing B.Tech Computer Engineering at Indus University, Ahmedabad, with expected completion in 2026. I completed my Diploma in Computer Engineering from Government Polytechnic, Porbandar in 2023.
+                    </p>
+                    <p className="mt-5 text-lg leading-8 text-[var(--muted)]">
+                      My interests sit at the intersection of AI, Full Stack Development, Database Management, and scalable systems. I am also interested in Microsoft technologies including .NET, C#, and Azure, and I keep building a continuous learning mindset around intelligent software systems.
+                    </p>
+                  </article>
+
+                  <div className="grid gap-5 reveal">
+                    {[
+                      ["Focus", "Full Stack apps, AI assistance, databases"],
+                      ["Mindset", "Curious, practical, consistent learner"],
+                      ["Career Goal", "Internships, freelance work, and fresher developer roles"],
+                    ].map(([title, text]) => (
+                      <article className="card glass" key={title}>
+                        <h3 className="text-lg font-extrabold">{title}</h3>
+                        <p className="mt-2 text-[var(--muted)] leading-7">{text}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="skills" className="section">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="reveal">
+                  <SectionHeading label="Skills" title="Technical foundation with a growing AI and data science edge.">
+                    A practical fresher skillset shaped by academic projects, hands-on learning, and curiosity for intelligent applications.
+                  </SectionHeading>
+                </div>
+
+                <div className="reveal grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {technicalSkills.map((skill, index) => (
+                    <SkillCard skill={skill} index={index} key={skill.name} />
+                  ))}
+                </div>
+
+                <div className="mt-8 grid gap-5 lg:grid-cols-2">
+                  <div className="reveal">
+                    <h3 className="mb-4 text-2xl font-extrabold">Currently Learning</h3>
+                    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                      {learningSkills.map((skill, index) => (
+                        <SkillCard skill={skill} index={index} key={skill.name} />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="reveal">
+                    <h3 className="mb-4 text-2xl font-extrabold">Soft Skills</h3>
+                    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                      {softSkills.map((skill, index) => (
+                        <SkillCard skill={skill} index={index} key={skill.name} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="projects" className="section">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="reveal">
+                  <SectionHeading label="Projects" title="Academic projects with real-world product thinking.">
+                    Project work focused on role-based systems, clean data management, AI assistance, and usable interfaces.
+                  </SectionHeading>
+                </div>
+
+                <div className="grid gap-5 md:grid-cols-2 reveal">
+                  {projects.map((project) => (
+                    <ProjectCard project={project} key={project.title} />
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="certifications" className="section">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+                  <div className="reveal">
+                    <SectionHeading label="Certification" title="Structured learning for web development." />
+                  </div>
+                  <article className="card glass reveal">
+                    <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+                      <span className="project-icon">
+                        <Icon name="badge-check" />
+                      </span>
+                      <div>
+                        <h3 className="text-2xl font-extrabold">Full Stack Web Development Course</h3>
+                        <p className="mt-2 text-[var(--muted)]">Udemy</p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section id="interests" className="section">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="reveal">
+                  <SectionHeading label="Interests" title="Areas I am excited to keep exploring." />
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 reveal">
+                  {interests.map((interest) => (
+                    <article className="card glass text-center" key={interest.title}>
+                      <span className="interest-icon mx-auto">
+                        <Icon name={interest.icon} />
+                      </span>
+                      <h3 className="mt-5 font-extrabold">{interest.title}</h3>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="education" className="section">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="reveal">
+                  <SectionHeading label="Education" title="Learning journey from foundations to computer engineering." />
+                </div>
+                <div className="timeline reveal max-w-4xl">
+                  {education.map((item) => (
+                    <article className="timeline-item" key={item.title}>
+                      <span className="timeline-icon">
+                        <Icon name="graduation-cap" />
+                      </span>
+                      <div className="card glass">
+                        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                          <div>
+                            <h3 className="text-xl font-extrabold">{item.title}</h3>
+                            <p className="mt-2 text-[var(--muted)]">{item.place}</p>
+                          </div>
+                          <span className="badge">{item.meta}</span>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="contact" className="section">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                  <div className="reveal">
+                    <SectionHeading label="Contact" title="Open to internships, freelance work, and fresher developer opportunities.">
+                      Have a role, project, or collaboration in mind? Reach out and I will respond as soon as possible.
+                    </SectionHeading>
+
+                    <div className="grid gap-3">
+                      <a className="social-link justify-start" href="mailto:pmnandha87@gmail.com">
+                        <Icon name="mail" />
+                        pmnandha87@gmail.com
+                      </a>
+                      <span className="social-link justify-start">
+                        <Icon name="map-pin" />
+                        Ahmedabad, Gujarat
+                      </span>
+                      <a className="social-link justify-start" href="https://www.linkedin.com/in/prem-nandha" target="_blank" rel="noreferrer">
+                        <Icon name="linkedin" />
+                        LinkedIn Profile
+                      </a>
+                    </div>
+
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      <a className="social-link" href="https://www.linkedin.com/in/prem-nandha" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                        <Icon name="linkedin" />
+                      </a>
+                      <a className="social-link" href="mailto:pmnandha87@gmail.com" aria-label="Email">
+                        <Icon name="mail" />
+                      </a>
+                      <a className="social-link" href="#projects" aria-label="Projects">
+                        <Icon name="folder" />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="reveal">
+                    <ContactForm />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          <footer className="border-t border-[var(--line)] py-8">
+            <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+              <p>Copyright 2026 Prem Nandha. All rights reserved.</p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#home" className="font-bold hover:text-[var(--text)]">Home</a>
+                <a href="#projects" className="font-bold hover:text-[var(--text)]">Projects</a>
+                <a href="#contact" className="font-bold hover:text-[var(--text)]">Contact</a>
+              </div>
+            </div>
+          </footer>
+
+          <button
+            type="button"
+            className={`icon-button scroll-top ${showTop ? "visible" : ""}`}
+            aria-label="Scroll to top"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <Icon name="arrow-up" />
+          </button>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<Portfolio />);
+  </script>
+</body>
+
+</html>

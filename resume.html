@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Printable resume for Prem Nandha, aspiring Full Stack Developer and AI enthusiast." />
+    <title>Prem Nandha | Resume</title>
+    <style>
+      :root {
+        --text: #111827;
+        --muted: #4b5563;
+        --line: #dbe3ea;
+        --accent: #0f766e;
+        --accent-2: #0284c7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #eef4f8;
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.55;
+      }
+
+      main {
+        width: min(960px, calc(100% - 2rem));
+        margin: 2rem auto;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: clamp(1.25rem, 4vw, 3rem);
+        box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        border-bottom: 2px solid var(--line);
+        padding-bottom: 1.5rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 8vw, 4rem);
+        line-height: 1;
+      }
+
+      h2 {
+        margin-top: 1.75rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid var(--line);
+        color: var(--accent);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        margin-top: 1rem;
+        font-size: 1.05rem;
+      }
+
+      .title {
+        margin-top: 0.5rem;
+        color: var(--accent-2);
+        font-weight: 700;
+      }
+
+      .contact {
+        display: grid;
+        gap: 0.3rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .summary {
+        margin-top: 1.5rem;
+        color: var(--muted);
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.8rem;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0.35rem 0.55rem;
+        background: #f8fafc;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .item {
+        margin-top: 1rem;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      ul {
+        margin: 0.55rem 0 0;
+        padding-left: 1.1rem;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      button,
+      a.button {
+        border: 0;
+        border-radius: 8px;
+        padding: 0.8rem 1rem;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #ffffff;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      @media (max-width: 700px) {
+        header {
+          display: block;
+        }
+
+        .contact {
+          margin-top: 1rem;
+        }
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+        }
+
+        main {
+          width: 100%;
+          margin: 0;
+          border: 0;
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        .actions {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Prem Nandha</h1>
+          <p class="title">Aspiring Full Stack Developer | AI Enthusiast</p>
+        </div>
+        <div class="contact">
+          <span>Email: pmnandha87@gmail.com</span>
+          <span>Location: Ahmedabad, Gujarat, India</span>
+          <span>LinkedIn: linkedin.com/in/prem-nandha</span>
+        </div>
+      </header>
+
+      <p class="summary">
+        Passionate Computer Engineering student focused on Full Stack Development, AI, database management, and building intelligent user-centric applications.
+      </p>
+
+      <section>
+        <h2>Education</h2>
+        <div class="item">
+          <h3>B.Tech Computer Engineering</h3>
+          <p class="meta">Indus University, Ahmedabad | Pursuing, 2026</p>
+        </div>
+        <div class="item">
+          <h3>Diploma Computer Engineering</h3>
+          <p class="meta">Government Polytechnic, Porbandar | 2023</p>
+        </div>
+        <div class="item">
+          <h3>10th Standard</h3>
+          <p class="meta">SMT. JVGEM English Medium School, Porbandar</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">React</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">PHP</span>
+          <span class="chip">Python</span>
+          <span class="chip">Angular</span>
+          <span class="chip">.NET</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Database Management</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <div class="item">
+          <h3>Quiz Management System</h3>
+          <p class="meta">HTML, CSS, PHP, SQL Database</p>
+          <ul>
+            <li>Built a web-based quiz management system for faculty, students, and admin management.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3>Smart Campus Assistance System</h3>
+          <p class="meta">React, Node.js, Express.js, MongoDB, AI Assistance</p>
+          <ul>
+            <li>Designed an AI-powered smart campus assistance platform with role-based access.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Certification</h2>
+        <div class="item">
+          <h3>Full Stack Web Development Course</h3>
+          <p class="meta">Udemy</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Currently Learning</h2>
+        <div class="chips">
+          <span class="chip">Data Science</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Advanced Python</span>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="button" onclick="window.print()">Print or Save as PDF</button>
+        <a class="button" href="index.html">Back to Portfolio</a>
+      </div>
+    </main>
+  </body>
+</html>
