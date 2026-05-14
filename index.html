@@ -428,6 +428,29 @@
       line-height: 1.75;
     }
 
+    .collapsible-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 360ms ease;
+    }
+
+    .collapsible-panel.open {
+      grid-template-rows: 1fr;
+    }
+
+    .collapsible-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .cert-toggle-icon {
+      transition: transform 240ms ease;
+    }
+
+    .cert-toggle-icon.open {
+      transform: rotate(180deg);
+    }
+
     .card {
       border-radius: 8px;
       padding: 1.35rem;
@@ -968,6 +991,24 @@
       return <i data-lucide={name} className={className} aria-hidden="true"></i>;
     }
 
+    function LinkedInOutlineIcon({ className = "icon" }) {
+      return (
+        <svg
+          viewBox="0 0 24 24"
+          className={className}
+          aria-hidden="true"
+        >
+          <rect x="2.7" y="2.7" width="18.6" height="18.6" rx="3" fill="#171717"></rect>
+          <circle cx="8.15" cy="8.05" r="1.18" fill="#ffffff"></circle>
+          <rect x="7.05" y="10.05" width="2.22" height="6.05" rx="0.45" fill="#ffffff"></rect>
+          <path
+            d="M11.15 10.05h2.1v0.84c0.52-0.69 1.28-1.12 2.42-1.12 2.08 0 3.18 1.37 3.18 3.74v2.59h-2.26v-2.35c0-1.34-0.47-2.25-1.65-2.25-0.9 0-1.42 0.61-1.65 1.19-0.08 0.2-0.12 0.47-0.12 0.75v2.66h-2.02z"
+            fill="#ffffff"
+          ></path>
+        </svg>
+      );
+    }
+
     function useIcons(dependencies = []) {
       useEffect(() => {
         const id = window.setTimeout(() => {
@@ -1215,6 +1256,76 @@
                 {tech}
               </span>
             ))}
+          </div>
+        </article>
+      );
+    }
+
+    function CertificateCard() {
+      const [open, setOpen] = useState(false);
+
+      return (
+        <article className="glass reveal overflow-hidden rounded-lg">
+          <div className="flex flex-col gap-5 p-6">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex gap-4">
+                <span className="project-icon">
+                  <Icon name="badge-check" />
+                </span>
+                <div>
+                  <h3 className="text-2xl font-extrabold">{certification.title}</h3>
+                  <p className="mt-2 text-[var(--muted)]">{certification.provider}</p>
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)]">{certification.description}</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 sm:min-w-52">
+                <button
+                  className="secondary-button min-h-[42px] px-4"
+                  type="button"
+                  onClick={() => setOpen((current) => !current)}
+                  aria-expanded={open}
+                  aria-controls="certificate-preview"
+                >
+                  <Icon name="eye" />
+                  {open ? "Hide Certificate" : "View Certificate"}
+                  <Icon name="chevron-down" className={`icon cert-toggle-icon ${open ? "open" : ""}`} />
+                </button>
+                <a
+                  className="ghost-button min-h-[42px] px-4"
+                  href={certification.file}
+                  download="Udemy-Full-Stack-Certificate.pdf"
+                >
+                  <Icon name="download" />
+                  Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div id="certificate-preview" className={`collapsible-panel ${open ? "open" : ""}`}>
+            <div className="collapsible-inner">
+              <div className="border-t border-[var(--line)] p-4 sm:p-5">
+                <div className="overflow-hidden rounded-lg border border-[var(--line)] bg-white shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+                  <object
+                    data={`${certification.file}#toolbar=0&navpanes=0&scrollbar=0`}
+                    type="application/pdf"
+                    className="h-[420px] w-full bg-white sm:h-[520px]"
+                  >
+                    <div className="flex h-[420px] flex-col items-center justify-center gap-4 px-6 text-center text-slate-700 sm:h-[520px]">
+                      <div className="grid h-16 w-16 place-items-center rounded-lg border border-slate-200 bg-slate-50 text-slate-700">
+                        <Icon name="file-text" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-extrabold text-slate-900">Certificate Preview</h4>
+                        <p className="mt-2 text-sm leading-7 text-slate-600">
+                          Your browser is not showing the PDF preview here. Use the download button above to open the certificate.
+                        </p>
+                      </div>
+                    </div>
+                  </object>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
       );
@@ -1583,65 +1694,10 @@
                 <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
                   <div className="reveal">
                     <SectionHeading label="Certification" title="Structured learning backed by a shareable certificate.">
-                      Recruiters and visitors can preview the certificate directly in the portfolio and open the full PDF when needed.
+                      Recruiters and visitors can open the certificate only when they want to see it, while the section stays clean by default.
                     </SectionHeading>
                   </div>
-                  <article className="glass reveal overflow-hidden rounded-lg">
-                    <div className="flex flex-col gap-5 border-b border-[var(--line)] p-6">
-                      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                        <div className="flex gap-4">
-                          <span className="project-icon">
-                            <Icon name="badge-check" />
-                          </span>
-                          <div>
-                            <h3 className="text-2xl font-extrabold">{certification.title}</h3>
-                            <p className="mt-2 text-[var(--muted)]">{certification.provider}</p>
-                            <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)]">{certification.description}</p>
-                          </div>
-                        </div>
-                        <div className="flex flex-col gap-3 sm:min-w-52">
-                          <a
-                            className="secondary-button min-h-[42px] px-4"
-                            href={certification.file}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <Icon name="eye" />
-                            View PDF
-                          </a>
-                          <a
-                            className="ghost-button min-h-[42px] px-4"
-                            href={certification.file}
-                            download="Udemy-Full-Stack-Certificate.pdf"
-                          >
-                            <Icon name="download" />
-                            Download PDF
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="p-4 sm:p-5">
-                      <div className="overflow-hidden rounded-lg border border-[var(--line)] bg-white shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
-                        <object
-                          data={`${certification.file}#toolbar=0&navpanes=0&scrollbar=0`}
-                          type="application/pdf"
-                          className="h-[420px] w-full bg-white sm:h-[520px]"
-                        >
-                          <div className="flex h-[420px] flex-col items-center justify-center gap-4 px-6 text-center text-slate-700 sm:h-[520px]">
-                            <div className="grid h-16 w-16 place-items-center rounded-lg border border-slate-200 bg-slate-50 text-slate-700">
-                              <Icon name="file-text" />
-                            </div>
-                            <div>
-                              <h4 className="text-xl font-extrabold text-slate-900">Certificate Preview</h4>
-                              <p className="mt-2 text-sm leading-7 text-slate-600">
-                                Your browser is not showing the PDF preview here. Use the buttons above to open or download the certificate.
-                              </p>
-                            </div>
-                          </div>
-                        </object>
-                      </div>
-                    </div>
-                  </article>
+                  <CertificateCard />
                 </div>
               </div>
             </section>
@@ -1708,14 +1764,14 @@
                         Ahmedabad, Gujarat
                       </span>
                       <a className="social-link justify-start" href="https://www.linkedin.com/in/prem-nandha" target="_blank" rel="noreferrer">
-                        <Icon name="linkedin" />
+                        <LinkedInOutlineIcon />
                         LinkedIn Profile
                       </a>
                     </div>
 
                     <div className="mt-5 flex flex-wrap gap-3">
                       <a className="social-link" href="https://www.linkedin.com/in/prem-nandha" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                        <Icon name="linkedin" />
+                        <LinkedInOutlineIcon />
                       </a>
                       <a className="social-link" href="mailto:pmnandha87@gmail.com" aria-label="Email">
                         <Icon name="mail" />

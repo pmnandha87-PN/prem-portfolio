@@ -3,13 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Printable resume for Prem Nandha, aspiring Full Stack Developer and AI enthusiast." />
+    <meta
+      name="description"
+      content="Resume preview for Prem Nandha, aspiring Full Stack Developer and AI enthusiast."
+    />
     <title>Prem Nandha | Resume</title>
     <style>
       :root {
+        --bg: #eff5f8;
+        --surface: rgba(255, 255, 255, 0.9);
+        --surface-soft: rgba(255, 255, 255, 0.72);
         --text: #111827;
-        --muted: #4b5563;
-        --line: #dbe3ea;
+        --muted: #5b6779;
+        --line: rgba(17, 24, 39, 0.12);
         --accent: #0f766e;
         --accent-2: #0284c7;
       }
@@ -20,256 +26,176 @@
 
       body {
         margin: 0;
-        background: #eef4f8;
+        min-height: 100vh;
+        background:
+          linear-gradient(90deg, rgba(15, 118, 110, 0.08) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(15, 118, 110, 0.08) 1px, transparent 1px),
+          linear-gradient(135deg, #f7fbfd, var(--bg));
+        background-size: 44px 44px, 44px 44px, auto;
         color: var(--text);
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.55;
+        font-family: Inter, Arial, Helvetica, sans-serif;
       }
 
-      main {
-        width: min(960px, calc(100% - 2rem));
-        margin: 2rem auto;
-        background: #ffffff;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 1.5rem auto;
+      }
+
+      .panel {
         border: 1px solid var(--line);
         border-radius: 8px;
-        padding: clamp(1.25rem, 4vw, 3rem);
+        background: var(--surface);
         box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+        backdrop-filter: blur(12px);
       }
 
-      header {
-        display: flex;
-        justify-content: space-between;
-        gap: 1.5rem;
-        border-bottom: 2px solid var(--line);
-        padding-bottom: 1.5rem;
+      .hero {
+        padding: 1.4rem;
       }
 
-      h1,
-      h2,
-      h3,
+      .eyebrow {
+        color: var(--accent);
+        font-size: 0.88rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0.55rem 0 0;
+        font-size: clamp(2.3rem, 6vw, 4rem);
+        line-height: 1.02;
+      }
+
       p {
         margin: 0;
       }
 
-      h1 {
-        font-size: clamp(2.2rem, 8vw, 4rem);
-        line-height: 1;
-      }
-
-      h2 {
-        margin-top: 1.75rem;
-        padding-bottom: 0.4rem;
-        border-bottom: 1px solid var(--line);
-        color: var(--accent);
-        font-size: 1.1rem;
-        text-transform: uppercase;
-      }
-
-      h3 {
-        margin-top: 1rem;
-        font-size: 1.05rem;
-      }
-
-      .title {
-        margin-top: 0.5rem;
-        color: var(--accent-2);
-        font-weight: 700;
-      }
-
-      .contact {
-        display: grid;
-        gap: 0.3rem;
+      .copy {
+        margin-top: 0.85rem;
+        max-width: 760px;
         color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .summary {
-        margin-top: 1.5rem;
-        color: var(--muted);
-      }
-
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 0.8rem;
-      }
-
-      .chip {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 0.35rem 0.55rem;
-        background: #f8fafc;
-        font-size: 0.9rem;
-        font-weight: 700;
-      }
-
-      .item {
-        margin-top: 1rem;
-      }
-
-      .meta {
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      ul {
-        margin: 0.55rem 0 0;
-        padding-left: 1.1rem;
-        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.75;
       }
 
       .actions {
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
-        margin-top: 1.5rem;
+        margin-top: 1.2rem;
       }
 
-      button,
-      a.button {
-        border: 0;
-        border-radius: 8px;
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
         padding: 0.8rem 1rem;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
-        color: #ffffff;
-        font-weight: 700;
-        text-decoration: none;
-        cursor: pointer;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--surface-soft);
+        color: var(--text);
+        font-weight: 800;
       }
 
-      .button.secondary {
-        background: #e8f1f7;
-        color: var(--text);
+      .button.primary {
+        border: 0;
+        color: #ffffff;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      .viewer {
+        margin-top: 1rem;
+        overflow: hidden;
+      }
+
+      .frame-wrap {
+        padding: 0.9rem;
+      }
+
+      .frame {
+        width: 100%;
+        height: min(82vh, 980px);
         border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .fallback {
+        display: grid;
+        place-items: center;
+        min-height: 360px;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .fallback p {
+        max-width: 560px;
+        color: var(--muted);
+        line-height: 1.7;
       }
 
       @media (max-width: 700px) {
-        header {
-          display: block;
+        .shell {
+          width: min(100%, calc(100% - 1rem));
+          margin: 0.5rem auto 1rem;
         }
 
-        .contact {
-          margin-top: 1rem;
+        .hero {
+          padding: 1rem;
         }
 
         .actions > * {
           width: 100%;
-          text-align: center;
-        }
-      }
-
-      @media print {
-        body {
-          background: #ffffff;
         }
 
-        main {
-          width: 100%;
-          margin: 0;
-          border: 0;
-          box-shadow: none;
-          border-radius: 0;
+        .frame-wrap {
+          padding: 0.65rem;
         }
 
-        .actions {
-          display: none;
+        .frame {
+          height: 72vh;
         }
       }
     </style>
   </head>
   <body>
-    <main>
-      <header>
-        <div>
-          <h1>Prem Nandha</h1>
-          <p class="title">Aspiring Full Stack Developer | AI Enthusiast</p>
-        </div>
-        <div class="contact">
-          <span>Email: pmnandha87@gmail.com</span>
-          <span>Location: Ahmedabad, Gujarat, India</span>
-          <span>LinkedIn: linkedin.com/in/prem-nandha</span>
-        </div>
-      </header>
-
-      <p class="summary">
-        Passionate Computer Engineering student focused on Full Stack Development, AI, database management, and building intelligent user-centric applications.
-      </p>
-
-      <section>
-        <h2>Education</h2>
-        <div class="item">
-          <h3>B.Tech Computer Engineering</h3>
-          <p class="meta">Indus University, Ahmedabad | Pursuing, 2026</p>
-        </div>
-        <div class="item">
-          <h3>Diploma Computer Engineering</h3>
-          <p class="meta">Government Polytechnic, Porbandar | 2023</p>
-        </div>
-        <div class="item">
-          <h3>10th Standard</h3>
-          <p class="meta">SMT. JVGEM English Medium School, Porbandar</p>
+    <main class="shell">
+      <section class="panel hero">
+        <p class="eyebrow">Resume</p>
+        <h1>Prem Nandha</h1>
+        <p class="copy">
+          This page previews the current PDF resume used by the portfolio, so any update to the resume file appears here too.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="Prem-Nandha-Resume.pdf" target="_blank" rel="noreferrer">Open Full PDF</a>
+          <a class="button" href="Prem-Nandha-Resume.pdf" download="Prem-Nandha-Resume.pdf">Download PDF Resume</a>
+          <a class="button" href="index.html">Back to Portfolio</a>
         </div>
       </section>
 
-      <section>
-        <h2>Skills</h2>
-        <div class="chips">
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">React</span>
-          <span class="chip">Node.js</span>
-          <span class="chip">PHP</span>
-          <span class="chip">Python</span>
-          <span class="chip">Angular</span>
-          <span class="chip">.NET</span>
-          <span class="chip">MongoDB</span>
-          <span class="chip">SQL</span>
-          <span class="chip">Database Management</span>
+      <section class="panel viewer">
+        <div class="frame-wrap">
+          <object
+            class="frame"
+            data="Prem-Nandha-Resume.pdf#toolbar=1&navpanes=0&scrollbar=1"
+            type="application/pdf"
+          >
+            <div class="fallback">
+              <div>
+                <p>
+                  Your browser is not showing the PDF preview here. Use the buttons above to open or download the latest resume.
+                </p>
+              </div>
+            </div>
+          </object>
         </div>
       </section>
-
-      <section>
-        <h2>Projects</h2>
-        <div class="item">
-          <h3>Quiz Management System</h3>
-          <p class="meta">HTML, CSS, PHP, SQL Database</p>
-          <ul>
-            <li>Built a web-based quiz management system for faculty, students, and admin management.</li>
-          </ul>
-        </div>
-        <div class="item">
-          <h3>Smart Campus Assistance System</h3>
-          <p class="meta">React, Node.js, Express.js, MongoDB, AI Assistance</p>
-          <ul>
-            <li>Designed an AI-powered smart campus assistance platform with role-based access.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h2>Certification</h2>
-        <div class="item">
-          <h3>Full Stack Web Development Course</h3>
-          <p class="meta">Udemy</p>
-        </div>
-      </section>
-
-      <section>
-        <h2>Currently Learning</h2>
-        <div class="chips">
-          <span class="chip">Data Science</span>
-          <span class="chip">Machine Learning</span>
-          <span class="chip">Advanced Python</span>
-        </div>
-      </section>
-
-      <div class="actions">
-        <a class="button" href="Prem-Nandha-Resume.pdf" download="Prem-Nandha-Resume.pdf">Download PDF Resume</a>
-        <button type="button" onclick="window.print()">Print or Save as PDF</button>
-        <a class="button secondary" href="index.html">Back to Portfolio</a>
-      </div>
     </main>
   </body>
 </html>
