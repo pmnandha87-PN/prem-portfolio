@@ -954,12 +954,22 @@
       },
     ];
 
-    const certification = {
-      title: "Full Stack Web Development Course",
-      provider: "Udemy",
-      file: "Udemy-Full-Stack-Certificate.pdf",
-      description: "Verified course certificate covering core full stack web development concepts and practical learning.",
-    };
+    const certifications = [
+      {
+        title: "Full Stack Web Development Course",
+        provider: "Udemy",
+        file: "Udemy-Full-Stack-Certificate.pdf",
+        description: "Verified course certificate covering core full stack web development concepts and practical learning.",
+        icon: "badge-check",
+      },
+      {
+        title: "Java Programming Certificate",
+        provider: "Additional Certification",
+        file: "Java-Certificate.pdf",
+        description: "Certificate added to showcase Java learning, programming fundamentals, and continued technical growth.",
+        icon: "file-code-2",
+      },
+    ];
 
     const interests = [
       { title: "Artificial Intelligence", icon: "brain" },
@@ -1261,8 +1271,9 @@
       );
     }
 
-    function CertificateCard() {
+    function CertificateCard({ certificate, index = 0 }) {
       const [open, setOpen] = useState(false);
+      const previewId = `certificate-preview-${index}`;
 
       return (
         <article className="glass reveal overflow-hidden rounded-lg">
@@ -1270,12 +1281,12 @@
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex gap-4">
                 <span className="project-icon">
-                  <Icon name="badge-check" />
+                  <Icon name={certificate.icon || "badge-check"} />
                 </span>
                 <div>
-                  <h3 className="text-2xl font-extrabold">{certification.title}</h3>
-                  <p className="mt-2 text-[var(--muted)]">{certification.provider}</p>
-                  <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)]">{certification.description}</p>
+                  <h3 className="text-2xl font-extrabold">{certificate.title}</h3>
+                  <p className="mt-2 text-[var(--muted)]">{certificate.provider}</p>
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)]">{certificate.description}</p>
                 </div>
               </div>
               <div className="flex flex-col gap-3 sm:min-w-52">
@@ -1284,7 +1295,7 @@
                   type="button"
                   onClick={() => setOpen((current) => !current)}
                   aria-expanded={open}
-                  aria-controls="certificate-preview"
+                  aria-controls={previewId}
                 >
                   <Icon name="eye" />
                   {open ? "Hide Certificate" : "View Certificate"}
@@ -1292,8 +1303,8 @@
                 </button>
                 <a
                   className="ghost-button min-h-[42px] px-4"
-                  href={certification.file}
-                  download="Udemy-Full-Stack-Certificate.pdf"
+                  href={certificate.file}
+                  download={certificate.file}
                 >
                   <Icon name="download" />
                   Download PDF
@@ -1302,12 +1313,12 @@
             </div>
           </div>
 
-          <div id="certificate-preview" className={`collapsible-panel ${open ? "open" : ""}`}>
+          <div id={previewId} className={`collapsible-panel ${open ? "open" : ""}`}>
             <div className="collapsible-inner">
               <div className="border-t border-[var(--line)] p-4 sm:p-5">
                 <div className="overflow-hidden rounded-lg border border-[var(--line)] bg-white shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
                   <object
-                    data={`${certification.file}#toolbar=0&navpanes=0&scrollbar=0`}
+                    data={`${certificate.file}#toolbar=0&navpanes=0&scrollbar=0`}
                     type="application/pdf"
                     className="h-[420px] w-full bg-white sm:h-[520px]"
                   >
@@ -1694,10 +1705,14 @@
                 <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
                   <div className="reveal">
                     <SectionHeading label="Certification" title="Structured learning backed by a shareable certificate.">
-                      Recruiters and visitors can open the certificate only when they want to see it, while the section stays clean by default.
+                      Recruiters and visitors can open each certificate only when they want to see it, while the section stays clean by default.
                     </SectionHeading>
                   </div>
-                  <CertificateCard />
+                  <div className="grid gap-5">
+                    {certifications.map((certificate, index) => (
+                      <CertificateCard certificate={certificate} index={index} key={certificate.file} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </section>
